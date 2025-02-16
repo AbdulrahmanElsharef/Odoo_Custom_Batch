@@ -1,0 +1,32 @@
+<odoo>
+    <!-- Inherit the Sales Order Tree View -->
+    <record id="view_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="batch_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit the Sales Order Form View -->
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_batch" type="object" string="View Batch" class="oe_stat_button" icon="fa-list">
+                        <field name="batch_id" string="Batch" widget="statinfo"/>
+                    </button>
+                </div>
+            </xpath>
+            <field name="partner_id"  position="after">
+                 <field name="batch_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>

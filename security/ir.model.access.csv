@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_batch,access_custom_batch,model_custom_batch,,1,1,1,1

@@ -1,0 +1,8 @@
+<odoo >  
+        <record id="agent_sequence" model="ir.sequence">
+                <field name="name">batch sequence</field>
+                <field name="code">custom.batch</field>
+                <field name="prefix">BT-</field>
+                <field name="padding">4</field>  <!-- Number of digits (e.g., 0001) -->
+        </record>
+</odoo>

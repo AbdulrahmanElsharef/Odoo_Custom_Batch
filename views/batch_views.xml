@@ -1,0 +1,97 @@
+<odoo>
+    <record id="view_batch_form" model="ir.ui.view">
+        <field name="name">custom.batch.form</field>
+        <field name="model">custom.batch</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <div>
+                        <h1>
+                            <field name="seq" readonly="1"/>
+                        </h1>
+                    </div>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="customer_id"/>
+                        <field name="total_amount"/>
+                        <field name="total_lines_amount"/>
+                    </group>
+                    <field name="sale_order_ids">
+                        <tree>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="amount_total"/>
+                        </tree>
+                    </field>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_batch_tree" model="ir.ui.view">
+        <field name="name">custom.batch.tree</field>
+        <field name="model">custom.batch</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="seq"/>
+                <field name="customer_id"/>
+                <field name="total_amount"/>
+                <field name="total_lines_amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_batch_kanban" model="ir.ui.view">
+        <field name="name">custom.batch.kanban</field>
+        <field name="model">custom.batch</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="seq"/>
+                <field name="customer_id"/>
+                <field name="total_amount"/>
+                <field name="total_lines_amount"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_title">
+                                <strong>
+                                    <field name="seq"/>
+                                </strong>
+                            </div>
+                            <div>
+                                <span>Customer: </span>
+                                <field name="customer_id"/>
+                            </div>
+                            <div>
+                                <span>Total Amount: </span>
+                                <field name="total_amount"/>
+                            </div>
+                            <div>
+                                <span>Total Lines Amount: </span>
+                                <field name="total_lines_amount"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_custom_batch" model="ir.actions.act_window">
+        <field name="name">Custom Batches</field>
+        <field name="res_model">custom.batch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+    id="menu_sales_custom_batch" 
+    name="Custom Batches" 
+    parent="sale.sale_menu_root" 
+    action="action_custom_batch" 
+    sequence="10"/>  <!-- Define a menu item -->
+
+</odoo>
