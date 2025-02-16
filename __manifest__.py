@@ -3,7 +3,7 @@
     'version': '17.0.1.0',
     'summary': 'Module to manage custom batches by sales orders',
     'author': 'Abdulrahman Elsharef',
-    'website': 'https://github.com/AbdulrahmanElsharef',
+    'website': 'https://github.com/AbdulrahmanElsharef/Odoo_Custom_Batch',
     'category': 'Sales',
     'depends': ['sale'],
     'data': [
